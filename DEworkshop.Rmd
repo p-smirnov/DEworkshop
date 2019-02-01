@@ -52,6 +52,7 @@ and asking questions throughout the workshop.
 * AnnotationHub
 * ReportingTools
 * Glimma
+* vsn
 
 ### Time outline
 
@@ -77,6 +78,15 @@ Learning objectives
 * Perform quality control and exploratory data analysis
 * Perform differential expression
 * Build dynamic reports
+
+## Installing Packages
+
+```{r, eval=FALSE}
+install.packages("BiocManager")
+install(c("DESeq2", "tximport", "apeglm", "AnnotationHub", "ReportingTools", "Glimma", "vsn"))
+
+```
+
 
 ## Preparing data for *DESeq2*
 
