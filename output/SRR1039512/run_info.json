@@ -1,0 +1,13 @@
+{
+	"n_targets": 206694,
+	"n_bootstraps": 0,
+	"n_processed": 28136282,
+	"n_pseudoaligned": 26416203,
+	"n_unique": 6459518,
+	"p_pseudoaligned": 93.9,
+	"p_unique": 23.0,
+	"kallisto_version": "0.45.0",
+	"index_version": 10,
+	"start_time": "Thu Jan 31 15:03:41 2019",
+	"call": "kallisto-45/kallisto quant -i kallisto-45/transcriptome/gencodev29.kalliso.v45.idx -o output/SRR1039512 -t 3 -b 0 --plaintext fastq/SRR1039512_1.fastq fastq/SRR1039512_2.fastq"
+}
