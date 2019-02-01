@@ -1,6 +1,13 @@
+---
+title: "RNA-seq data analysis with DESeq2"
+output: html_document
+bibliography: bib.bib
+---
+
+
 # RNA-seq data analysis with DESeq2
 
-Presented By Petr Smirnov
+Presented By Petr Smirnov^[University of Toronto, CA]
 
 Heavily Adapted From:
     Michael I. Love^[UNC-Chapel Hill, NC, US],
@@ -387,6 +394,39 @@ We can access the transformed data with *assay*:
 ```{r}
 assay(vsd)[1:3,1:3]
 ```
+
+### Why VST?
+
+The reason we should usually perform a Variance Stabalizing transformation 
+is because count data has the property that the variance of expression 
+depends highly on the average expression. If we then apply a method like PCA,
+it will be biased by the higher variance in lower expressed genes, and will 
+overestimate the importance in the differences observed in those genes. 
+
+We can visualize the effects of a variance stabilizing transform as below:
+
+```{r}
+ntd <- normTransform(dds)
+library("vsn")
+meanSdPlot(assay(ntd))
+```
+
+If we plot the same relationship after applying the VST:
+
+```{r}
+meanSdPlot(assay(vsd))
+```
+
+DESeq also provides a slighly different method to do this transformation, 
+the regularized log *rlog* method. Rougly, the benefit of this method is that the values are 
+more comparable to the standard log-transformed expression values. However, as you can
+see it is more strict with the lowly expressed genes. 
+
+```{r}
+rld <- rlog(dds)
+meanSdPlot(assay(rld))
+```
+
 
 ### Principal components plot
 
